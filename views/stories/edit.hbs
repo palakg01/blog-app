@@ -1,0 +1,46 @@
+<h1 class="heading">Explore Blogs </h1>
+
+<div
+  class="container text-light d-flex flex-column justify-content-center align-items-center"
+>
+  <form action="/stories/{{story._id}}" method="POST" style="width: 100%;">
+    <input type="hidden" name="_method" value="PUT" />
+    <div class="col-md-12 col-lg-12 col-sm-12 py-2">
+      <label for="title" class="form-label px-2">Title</label>
+      <input
+        class="form-control box"
+        id="title"
+        name="title"
+        value="{{story.title}}"
+      />
+    </div>
+    <div class="col-md-12 col-lg-12 col-sm-12 py-2">
+      <label for="status" class="p-2">Visibility</label>
+      <select
+        class="form-select box"
+        aria-label="Default select example"
+        id="status"
+        name="status"
+      >
+        <option value="Public" selected>Public</option>
+        <option value="Private">Private</option>
+
+      </select>
+    </div>
+    <div class="col-md-12 col-lg-12 col-sm-12 py-2">
+      <label for="blogBody" class="p-2">Tell us your story</label>
+      <textarea
+        class="form-control"
+        name="blogBody"
+        id="blogBody"
+      >{{story.blogBody}}</textarea>
+    </div>
+    <div class="col-12 d-flex">
+      <button type="submit" class="btn purple-btn">Save</button>
+      <button class="btn purple-btn ms-2" style="background-color: grey;"><a
+          href="/stories"
+        >Cancel</a></button>
+    </div>
+
+  </form>
+</div>

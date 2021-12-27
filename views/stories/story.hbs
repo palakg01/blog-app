@@ -1,0 +1,38 @@
+<h1 class="heading">{{story.title}} </h1>
+<div class="d-flex single-story mb-5">
+  <div>
+    <div class="px-5">
+      <h5 class="text-capitalize" style="font-weight: bold; color:#8ecb7e">
+        Created On :
+        <span style="color:#f1eef9; font-weight:200">
+          {{formatDate createdAt}}
+        </span>
+      </h5>
+
+      <h5 class="text-capitalize" style="font-weight: bold; color:#8ecb7e">
+        Author :
+        <span style="color:#f1eef9; font-weight:200">
+          {{story.user.displayName}}
+        </span>
+      </h5>
+    </div>
+    <div class="left d-flex flex-column flex-wrap mt-4">
+      <div class="box p-4 mx-5" style="width: 70vw;">
+        {{stripTags story.blogBody}}
+      </div>
+    </div>
+  </div>
+  <div class="right d-none d-lg-block">
+    <div class="box p-4 d-flex flex-column align-items-center">
+      <img
+        src="{{story.user.image}}"
+        alt=""
+        style="width:15rem;height:15rem; border-radius:50%; object-fit:cover"
+        class="user-image-story"
+      />
+      <a href="/stories/user/{{story.user._id}}" class="mt-4 purple-btn">More
+        from this author</a>
+      <a href="/stories" class="">Back to Blogs</a>
+    </div>
+  </div>
+</div>

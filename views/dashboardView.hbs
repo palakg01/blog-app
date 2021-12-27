@@ -1,0 +1,52 @@
+<h1 class="heading">{{name}}'s Dashboard</h1>
+
+{{#if stories}}
+  <div class="d-flex flex-wrap px-4 my-3 justify-content-center">
+    {{#each stories}}
+      <div
+        class="box px-2 pt-4 m-2 d-flex flex-column align-items-start ps-4"
+        style="width: 350px; max-height: 400px; overflow: hidden"
+      >
+
+        <h6
+          class="text-capitalize"
+          style="font-weight: bold; color:#8ecb7e"
+        >Title:
+          <span style="color:#f1eef9; font-weight:200">{{title}}</span></h6>
+
+        <h6
+          class="text-capitalize"
+          style="font-weight: bold; color:#8ecb7e"
+        >Visibility:
+          <span style="color:#f1eef9; font-weight:200">{{status}}</span></h6>
+        <h6
+          class="text-capitalize"
+          style="font-weight: bold; color:#8ecb7e"
+        >Created On:
+          <span style="color:#f1eef9; font-weight:200">{{formatDate
+              createdAt
+            }}</span></h6>
+        <div
+          class="pt-2 d-flex justify-content-evenly align-items-center"
+          style="width:100%"
+        >
+          <a href="/stories/edit/{{_id}}" class="purple-btn">Edit</a>
+          <form
+            action="/stories/{{_id}}"
+            method="POST"
+            class="pt-3 d-flex align-items-center"
+          >
+            <input type="hidden" name="_method" value="DELETE" />
+            <button
+              type="submit"
+              class="purple-btn bg-danger mx-2"
+            >Delete</button>
+          </form>
+        </div>
+      </div>
+
+    {{/each}}
+  </div>
+{{else}}
+  <h4>OOPS! Looks like you haven't written any blogs yet</h4>
+{{/if}}

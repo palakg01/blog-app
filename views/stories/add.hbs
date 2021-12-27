@@ -1,0 +1,35 @@
+<h1 class="heading">Add a New Blog</h1>
+
+<div
+  class="container text-light d-flex flex-column justify-content-center align-items-center"
+>
+  <form action="/stories" method="POST" style="width: 100%;">
+    <form class="row g-3">
+      <div class="col-md-12 col-lg-12 col-sm-12 py-2">
+        <label for="title" class="form-label px-2">Title</label>
+        <input class="form-control box" id="title" name="title" />
+      </div>
+      <div class="col-md-12 col-lg-12 col-sm-12 py-2">
+        <label for="status" class="p-2">Visibility</label>
+        <select
+          class="form-select box"
+          aria-label="Default select example"
+          id="status"
+          name="status"
+        >
+          {{! <option selected>Visibility</option> }}
+          <option value="Public" selected>Public</option>
+          <option value="Private">Private</option>
+
+        </select>
+      </div>
+      <div class="col-md-12 col-lg-12 col-sm-12 py-2">
+        <label for="blogBody" class="p-2">Tell us your story</label>
+        <textarea class="form-control" name="blogBody" id="blogBody"></textarea>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn purple-btn">Publish Blog</button>
+      </div>
+    </form>
+  </form>
+</div>

@@ -1,0 +1,40 @@
+<h1 class="heading">Explore Blogs </h1>
+
+{{#if stories}}
+  <div class="d-flex flex-wrap px-4 my-3 justify-content-center">
+    {{#each stories}}
+      <div
+        class="box px-2 py-4 m-2 d-flex flex-column align-items-center"
+        style="width: 450px; max-height: 400px; overflow: hidden"
+      >
+
+        <h5
+          class="text-capitalize py-3"
+          style="font-weight: bold; color:#8ecb7e"
+        >{{title}}</h5>
+
+        <p class="text-center" style="height: 100px; overflow:hidden">{{stripTags
+            (truncateStr blogBody 750)
+          }}</p>
+
+        <div class="author-deets">
+          <img src={{user.image}} alt="" class="user-img me-2" />
+          <a
+            href="/stories/user/{{user._id}}"
+            class="user-name"
+          >{{user.displayName}}</a>
+        </div>
+        <div class="pt-2 d-flex justify-content-center align-items-center" style="width:100%">
+          <a href="/stories/{{_id}}" class="purple-btn">Read More</a>
+          {{!-- user = stpry.user, id=story._id   ../user is local user ie req.user--}}        
+          <div>
+            {{{editIcon user ../user _id}}}
+          </div>
+        </div>
+      </div>
+      
+    {{/each}}
+  </div>
+{{else}}
+  <h4>OOPS! No blogs to display</h4>
+{{/if}}
