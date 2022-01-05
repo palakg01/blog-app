@@ -14,8 +14,8 @@ router.get("/dashboard", isLogged, async (req, res) => {
   // console.log(req);
   try {
     var stories = await Story.find({ user: req.user.id }).lean();
-    console.log(req.user.id);
-    console.log(stories);
+    // console.log(req.user.id);
+    // console.log(stories);
     res.render("dashboardView", {
       name: req.user.firstName,
       stories,

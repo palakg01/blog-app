@@ -17,13 +17,15 @@
       </h5>
     </div>
     <div class="left d-flex flex-column flex-wrap mt-4">
-      <div class="box p-4 mx-5" style="width: 70vw;">
+      <div class="box p-4 story-body-text">
         {{stripTags story.blogBody}}
       </div>
     </div>
   </div>
   <div class="right d-none d-lg-block">
-    <div class="box p-4 d-flex flex-column align-items-center">
+    <div
+      class="box p-4 d-flex flex-column align-items-center author-info-container"
+    >
       <img
         src="{{story.user.image}}"
         alt=""
